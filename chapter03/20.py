@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-import re
 import sys
+import json
 
-pattern = re.compile(u'.*イギリス.*', re.DOTALL)
 for line in sys.stdin:
-    if pattern.match(line):
-        sys.stdout.write(line)
+    article = json.loads(line)
+    if article['title'] == 'イギリス':
+        print(article['text'])
